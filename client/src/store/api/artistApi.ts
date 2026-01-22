@@ -1,13 +1,32 @@
 import { baseApi } from './baseApi';
 
+interface SocialLinks {
+  spotify?: string;
+  appleMusic?: string;
+  instagram?: string;
+  twitter?: string;
+  youtube?: string;
+  [key: string]: string | undefined;
+}
+
+interface Project {
+  id: string;
+  title: string;
+  description?: string;
+  releaseDate?: string;
+  coverUrl?: string;
+  type: string;
+  isPublished: boolean;
+}
+
 interface Artist {
   id: string;
   name: string;
   bio?: string;
   genre?: string;
   imageUrl?: string;
-  socialLinks?: any;
-  projects?: any[];
+  socialLinks?: SocialLinks;
+  projects?: Project[];
   createdAt: string;
   updatedAt: string;
 }

@@ -62,7 +62,7 @@ const ExploreCategory = () => {
 
   // Get visible categories with infinite loop logic
   const getVisibleCategories = () => {
-    let endIndex = currentIndex + itemsToShow;
+    const endIndex = currentIndex + itemsToShow;
     if (endIndex > extendedCategories.length) {
       const overflow = endIndex - extendedCategories.length;
       return [

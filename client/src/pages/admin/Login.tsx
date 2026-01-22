@@ -28,8 +28,9 @@ const Login = () => {
       const result = await login({ email, password }).unwrap();
       dispatch(setCredentials({ admin: result.admin, token: result.token }));
       navigate('/bja-control-panel/dashboard');
-    } catch (err: any) {
-      setError(err?.data?.error || 'Login failed. Please check your credentials.');
+    } catch (err) {
+      const error = err as { data?: { error?: string } };
+      setError(error?.data?.error || 'Login failed. Please check your credentials.');
     }
   };
 
