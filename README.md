@@ -1,2 +1,2 @@
-# BJA-Record-Site
-The BJA Record is a Liberian base Music Record Label
+# BJA Record
+It is a Music Record Company website

@@ -1,0 +1,76 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  name      String
+  role      String   @default("admin")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Artist {
+  id          String    @id @default(uuid())
+  name        String
+  bio         String?
+  genre       String?
+  imageUrl    String?
+  imagePublicId String?
+  socialLinks Json?
+  isPublished Boolean   @default(false)
+  projects    Project[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Project {
+  id            String   @id @default(uuid())
+  title         String
+  description   String?
+  releaseDate   DateTime?
+  coverUrl      String?
+  coverPublicId String?
+  type          String   // album, single, EP
+  artistId      String
+  artist        Artist   @relation(fields: [artistId], references: [id], onDelete: Cascade)
+  tracks        Track[]
+  isPublished   Boolean  @default(false)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model Track {
+  id              String   @id @default(uuid())
+  title           String
+  duration        Int?     // in seconds
+  trackNumber     Int?
+  audioUrl        String?
+  audioPublicId   String?
+  streamingLinks  Json?    // Spotify, Apple Music, etc.
+  projectId       String
+  project         Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model News {
+  id            String   @id @default(uuid())
+  title         String
+  content       String
+  excerpt       String?
+  imageUrl      String?
+  imagePublicId String?
+  author        String?
+  isPublished   Boolean  @default(false)
+  publishedAt   DateTime?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
