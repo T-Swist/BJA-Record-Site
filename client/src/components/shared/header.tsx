@@ -93,7 +93,7 @@ const Header = () => {
                 setActiveSubDropdown(null);
               }}
             >
-              Our Story
+              About Us
             </Link>
 
             {/* Artists Dropdown */}
@@ -206,301 +206,41 @@ const Header = () => {
             </div>
 
             
-            {/* Services Dropdown */}
-            <div 
-              className="relative"
-              onMouseEnter={() => setActiveDropdown('services')}
-              onMouseLeave={() => {
-                if (!activeSubDropdown) {
-                  setActiveDropdown(null);
-                }
+            {/* Services */}
+            <Link 
+              to="/services" 
+              className="font-sans text-white hover:text-bronze transition-colors"
+              onClick={() => {
+                setActiveDropdown(null);
+                setActiveSubDropdown(null);
               }}
             >
-              <button 
-                className="font-sans text-white hover:text-bronze transition-colors flex items-center"
-                onClick={() => toggleDropdown('services')}
-                aria-expanded={activeDropdown === 'services'}
-              >
-                Services
-                <svg 
-                  className={`ml-1 h-4 w-4 transition-transform ${activeDropdown === 'services' ? 'rotate-180' : ''}`}
-                  fill="none" 
-                  viewBox="0 0 24 24" 
-                  stroke="currentColor"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              
-              <AnimatePresence>
-                {activeDropdown === 'services' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute left-0 mt-2 w-64 bg-ash rounded-lg shadow-xl z-50 py-2"
-                    onMouseLeave={() => {
-                      setActiveDropdown(null);
-                      setActiveSubDropdown(null);
-                    }}
-                  >
-                    <Link 
-                      to="/coming-soon" 
-                      className="block px-4 py-2 text-white hover:text-bronze hover:bg-black/20"
-                      onClick={() => {
-                        setActiveDropdown(null);
-                        setActiveSubDropdown(null);
-                      }}
-                    >
-                      Bespoke Event Curation
-                    </Link>
-                    <div className="relative">
-                      <button
-                        className="w-full text-left px-4 py-2 text-white/70 hover:text-bronze hover:bg-black/20 flex justify-between items-center"
-                        onClick={() => toggleSubDropdown('travel')}
-                      >
-                        Travel
-                        <svg 
-                          className={`ml-1 h-4 w-4 transition-transform ${activeSubDropdown === 'travel' ? 'rotate-90' : ''}`}
-                          fill="none" 
-                          viewBox="0 0 24 24" 
-                          stroke="currentColor"
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                      </button>
-                      {activeSubDropdown === 'travel' && (
-                        <Link to="/coming-soon" onClick={handleLinkClick} className="pl-4 text-sm text-white/70">
-                          Coming soon
-                        </Link>
-                      )}
-                    </div>
-                    {/* Repeat similar structure for other services */}
-                    <div className="relative">
-                      <button
-                        className="w-full text-left px-4 py-2 text-white/70 hover:text-bronze hover:bg-black/20 flex justify-between items-center"
-                        onClick={() => toggleSubDropdown('dining')}
-                      >
-                        Fine Dining & Nightlife
-                        <svg 
-                          className={`ml-1 h-4 w-4 transition-transform ${activeSubDropdown === 'dining' ? 'rotate-90' : ''}`}
-                          fill="none" 
-                          viewBox="0 0 24 24" 
-                          stroke="currentColor"
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                      </button>
-                      {activeSubDropdown === 'dining' && (
-                        <Link to="/coming-soon" onClick={handleLinkClick} className="pl-4 text-sm text-white/70">
-                          Coming soon
-                        </Link>
-                      )}
-                    </div>
-                    <div className="relative">
-                      <button
-                        className="w-full text-left px-4 py-2 text-white/70 hover:text-bronze hover:bg-black/20 flex justify-between items-center"
-                        onClick={() => toggleSubDropdown('transportation')}
-                      >
-                        Luxury Transportation
-                        <svg 
-                          className={`ml-1 h-4 w-4 transition-transform ${activeSubDropdown === 'transportation' ? 'rotate-90' : ''}`}
-                          fill="none" 
-                          viewBox="0 0 24 24" 
-                          stroke="currentColor"
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                      </button>
-                      {activeSubDropdown === 'transportation' && (
-                        <Link to="/coming-soon" onClick={handleLinkClick} className="pl-4 text-sm text-white/70">
-                          Coming soon
-                        </Link>
-                      )}
-                    </div>
-                    <div className="relative">
-                      <button
-                        className="w-full text-left px-4 py-2 text-white/70 hover:text-bronze hover:bg-black/20 flex justify-between items-center"
-                        onClick={() => toggleSubDropdown('lifestyle')}
-                      >
-                        Lifestyle & Wardrobe
-                        <svg 
-                          className={`ml-1 h-4 w-4 transition-transform ${activeSubDropdown === 'lifestyle' ? 'rotate-90' : ''}`}
-                          fill="none" 
-                          viewBox="0 0 24 24" 
-                          stroke="currentColor"
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                      </button>
-                      {activeSubDropdown === 'lifestyle' && (
-                        <Link to="/coming-soon" onClick={handleLinkClick} className="pl-4 text-sm text-white/70">
-                          Coming soon
-                        </Link>
-                      )}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+              Services
+            </Link>
 
-            {/* Social Club Dropdown */}
-            <div 
-              className="relative"
-              onMouseEnter={() => setActiveDropdown('socialClub')}
-              onMouseLeave={() => {
-                if (!activeSubDropdown) {
-                  setActiveDropdown(null);
-                }
+             {/* Blog */}
+            <Link 
+              to="/blog" 
+              className="font-sans text-white hover:text-bronze transition-colors"
+              onClick={() => {
+                setActiveDropdown(null);
+                setActiveSubDropdown(null);
               }}
             >
-              <button 
-                className="font-sans text-white hover:text-bronze transition-colors flex items-center"
-                onClick={() => toggleDropdown('socialClub')}
-                aria-expanded={activeDropdown === 'socialClub'}
-              >
-                Social Club
-                <svg 
-                  className={`ml-1 h-4 w-4 transition-transform ${activeDropdown === 'socialClub' ? 'rotate-180' : ''}`}
-                  fill="none" 
-                  viewBox="0 0 24 24" 
-                  stroke="currentColor"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              
-              <AnimatePresence>
-                {activeDropdown === 'socialClub' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute left-0 mt-2 w-64 bg-ash rounded-lg shadow-xl z-50 py-2"
-                    onMouseLeave={() => {
-                      setActiveDropdown(null);
-                      setActiveSubDropdown(null);
-                    }}
-                  >
-                    <div className="relative">
-                      <button
-                        className="w-full text-left px-4 py-2 text-white hover:text-bronze hover:bg-black/20 flex justify-between items-center"
-                        onClick={() => toggleSubDropdown('gallery')}
-                      >
-                        Gallery
-                        <svg 
-                          className={`ml-1 h-4 w-4 transition-transform ${activeSubDropdown === 'gallery' ? 'rotate-90' : ''}`}
-                          fill="none" 
-                          viewBox="0 0 24 24" 
-                          stroke="currentColor"
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                      </button>
-                      {activeSubDropdown === 'gallery' && (
-                        <div className="pl-4 text-sm">
-                          <Link 
-                            to="/coming-soon" 
-                            className="block px-4 py-2 text-white hover:text-bronze hover:bg-black/20"
-                            onClick={() => {
-                              setActiveDropdown(null);
-                              setActiveSubDropdown(null);
-                            }}
-                          >
-                            Episode 1: Brunch & Connect
-                          </Link>
-                          <Link 
-                            to="/coming-soon" 
-                            className="block px-4 py-2 text-white hover:text-bronze hover:bg-black/20"
-                            onClick={() => {
-                              setActiveDropdown(null);
-                              setActiveSubDropdown(null);
-                            }}
-                          >
-                            Episode 2: The Empire Ball
-                          </Link>
-                          <Link 
-                            to="/coming-soon" 
-                            className="block px-4 py-2 text-white hover:text-bronze hover:bg-black/20"
-                            onClick={() => {
-                              setActiveDropdown(null);
-                              setActiveSubDropdown(null);
-                            }}
-                          >
-                            Episode 3: Coming soon
-                          </Link>
-                        </div>
-                      )}
-                    </div>
-                    <div className="relative">
-                      <button
-                        className="w-full text-left px-4 py-2 text-white hover:text-bronze hover:bg-black/20 flex justify-between items-center"
-                        onClick={() => toggleSubDropdown('tickets')}
-                      >
-                        Get Tickets
-                        <svg 
-                          className={`ml-1 h-4 w-4 transition-transform ${activeSubDropdown === 'tickets' ? 'rotate-90' : ''}`}
-                          fill="none" 
-                          viewBox="0 0 24 24" 
-                          stroke="currentColor"
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                      </button>
-                      {activeSubDropdown === 'tickets' && (
-                        <Link to="/coming-soon" className="pl-4 text-sm text-white/70">
-                          Coming soon
-                        </Link>
-                      )}
-                    </div>
-                    <div className="relative">
-                      <button
-                        className="w-full text-left px-4 py-2 text-white hover:text-bronze hover:bg-black/20 flex justify-between items-center"
-                        onClick={() => toggleSubDropdown('merch')}
-                      >
-                        Buy Merch
-                        <svg 
-                          className={`ml-1 h-4 w-4 transition-transform ${activeSubDropdown === 'merch' ? 'rotate-90' : ''}`}
-                          fill="none" 
-                          viewBox="0 0 24 24" 
-                          stroke="currentColor"
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                      </button>
-                      {activeSubDropdown === 'merch' && (
-                        <Link to="/coming-soon" className="pl-4 text-sm text-white/70">
-                          Coming soon
-                        </Link>
-                      )}
-                    </div>
-                    <div className="relative">
-                      <button
-                        className="w-full text-left px-4 py-2 text-white hover:text-bronze hover:bg-black/20 flex justify-between items-center"
-                        onClick={() => toggleSubDropdown('podcast')}
-                      >
-                        Podcast
-                        <svg 
-                          className={`ml-1 h-4 w-4 transition-transform ${activeSubDropdown === 'podcast' ? 'rotate-90' : ''}`}
-                          fill="none" 
-                          viewBox="0 0 24 24" 
-                          stroke="currentColor"
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                      </button>
-                      {activeSubDropdown === 'podcast' && (
-                        <Link to="/coming-soon" className="pl-4 text-sm text-white/70">
-                          Coming soon
-                        </Link>
-                      )}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+              Blog
+            </Link>
+
+            {/* Contact */}
+            <Link 
+              to="/contact" 
+              className="font-sans text-white hover:text-bronze transition-colors"
+              onClick={() => {
+                setActiveDropdown(null);
+                setActiveSubDropdown(null);
+              }}
+            >
+              Contact
+            </Link>
           </div>
 
           {/* Right Side - Desktop Button / Mobile Menu Button */}
