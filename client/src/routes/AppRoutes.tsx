@@ -29,10 +29,15 @@ const Discography = lazy(() => import("../pages/Discography"));
 
 // Admin pages
 const AdminLogin = lazy(() => import("../pages/admin/Login"));
-const AdminDashboard = lazy(() => import("../pages/admin/Dashboard"));
+const AdminLayout = lazy(() => import("../components/admin/AdminLayout"));
+const DashboardHome = lazy(() => import("../pages/admin/DashboardHome"));
 const AdminArtists = lazy(() => import("../pages/admin/Artists"));
 const AdminProjects = lazy(() => import("../pages/admin/Projects"));
 const AdminNews = lazy(() => import("../pages/admin/News"));
+const BlogAdmin = lazy(() => import("../pages/admin/BlogAdmin"));
+const ContactsAdmin = lazy(() => import("../pages/admin/ContactsAdmin"));
+const NewsletterAdmin = lazy(() => import("../pages/admin/NewsletterAdmin"));
+const EventsAdmin = lazy(() => import("../pages/admin/EventsAdmin"));
 
 const AppRoutes = () => {
   return (
@@ -41,10 +46,20 @@ const AppRoutes = () => {
       <Routes>
         {/* Admin Routes - Non-obvious URL */}
         <Route path="/bja-control-panel" element={<AdminLogin />} />
-        <Route path="/bja-control-panel/dashboard" element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>} />
-        <Route path="/bja-control-panel/artists" element={<ProtectedRoute><AdminArtists /></ProtectedRoute>} />
-        <Route path="/bja-control-panel/projects" element={<ProtectedRoute><AdminProjects /></ProtectedRoute>} />
-        <Route path="/bja-control-panel/news" element={<ProtectedRoute><AdminNews /></ProtectedRoute>} />
+        <Route path="/bja-control-panel/*" element={
+          <ProtectedRoute>
+            <AdminLayout />
+          </ProtectedRoute>
+        }>
+          <Route path="dashboard" element={<DashboardHome />} />
+          <Route path="artists" element={<AdminArtists />} />
+          <Route path="projects" element={<AdminProjects />} />
+          <Route path="news" element={<AdminNews />} />
+          <Route path="blog" element={<BlogAdmin />} />
+          <Route path="contacts" element={<ContactsAdmin />} />
+          <Route path="newsletter" element={<NewsletterAdmin />} />
+          <Route path="events" element={<EventsAdmin />} />
+        </Route>
 
         {/* Public Routes */}
         <Route path="*" element={
