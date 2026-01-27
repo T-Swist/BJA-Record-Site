@@ -2,10 +2,16 @@ import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
 import dotenv from "dotenv";
-import authRoutes from "./src/routes/authRoutes.js";
-import artistRoutes from "./src/routes/artistRoutes.js";
-import uploadRoutes from "./src/routes/uploadRoutes.js";
-import { connectDatabase } from "./src/config/database.js";
+import cors from "cors";
+import authRoutes from "./routes/authRoutes.js";
+import artistRoutes from "./routes/artistRoutes.js";
+import uploadRoutes from "./routes/uploadRoutes.js";
+import blogRoutes from "./routes/blogRoutes.js";
+import contactRoutes from "./routes/contactRoutes.js";
+import newsletterRoutes from "./routes/newsletterRoutes.js";
+import eventRoutes from "./routes/eventRoutes.js";
+import { connectDatabase } from "./config/database.js";
+import { errorHandler } from './middleware/errorHandler.js';
 import fs from "fs";
 
 dotenv.config();
@@ -21,6 +27,7 @@ if (!fs.existsSync('uploads')) {
 }
 
 // Middleware
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -37,6 +44,10 @@ connectDatabase();
 app.use("/api/auth", authRoutes);
 app.use("/api/artists", artistRoutes);
 app.use("/api/upload", uploadRoutes);
+app.use("/api/blog", blogRoutes);
+app.use("/api/contact", contactRoutes);
+app.use("/api/newsletter", newsletterRoutes);
+app.use("/api/events", eventRoutes);
 
 // Serve unified client application (includes admin at /bja-control-panel)
 app.use(express.static(path.join(__dirname, 'public/client')));
@@ -49,9 +60,6 @@ app.get('*', (req, res) => {
 });
 
 // Error handling middleware
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).json({ error: err.message || 'Something went wrong!' });
-});
+app.use(errorHandler);
 
 export default app;

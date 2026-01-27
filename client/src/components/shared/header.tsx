@@ -136,37 +136,56 @@ const Header = () => {
                     }}
                   >
                     <Link 
-                      to="/coming-soon" 
+                      to="/artists" 
                       className="block px-4 py-2 text-white hover:text-bronze hover:bg-black/20"
                       onClick={() => {
                         setActiveDropdown(null);
                         setActiveSubDropdown(null);
                       }}
                     >
-                      Artists Profile
+                      All Artists
                     </Link>
-                    <div className="relative">
-                      <button
-                        className="w-full text-left px-4 py-2 text-white/70 hover:text-bronze hover:bg-black/20 flex justify-between items-center"
-                        onClick={() => toggleSubDropdown('travel')}
-                      >
-                       Discography
-                        <svg 
-                          className={`ml-1 h-4 w-4 transition-transform ${activeSubDropdown === 'travel' ? 'rotate-90' : ''}`}
-                          fill="none" 
-                          viewBox="0 0 24 24" 
-                          stroke="currentColor"
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                      </button>
-                      {activeSubDropdown === 'travel' && (
-                        <Link to="/coming-soon" onClick={handleLinkClick} className="pl-4 text-sm text-white/70">
-                          Coming soon
-                        </Link>
-                      )}
-                    </div>
-                    {/* Repeat similar structure for other artists */}
+                    <Link 
+                      to="/discography" 
+                      className="block px-4 py-2 text-white hover:text-bronze hover:bg-black/20"
+                      onClick={() => {
+                        setActiveDropdown(null);
+                        setActiveSubDropdown(null);
+                      }}
+                    >
+                      Discography
+                    </Link>
+                    <div className="border-t border-gray-700 my-2"></div>
+                    <Link 
+                      to="/artists/daimond-datch" 
+                      className="block px-4 py-2 text-white/70 hover:text-bronze hover:bg-black/20"
+                      onClick={() => {
+                        setActiveDropdown(null);
+                        setActiveSubDropdown(null);
+                      }}
+                    >
+                      Daimond Datch
+                    </Link>
+                    <Link 
+                      to="/artists/da-wayne" 
+                      className="block px-4 py-2 text-white/70 hover:text-bronze hover:bg-black/20"
+                      onClick={() => {
+                        setActiveDropdown(null);
+                        setActiveSubDropdown(null);
+                      }}
+                    >
+                      Da Wayne
+                    </Link>
+                    <Link 
+                      to="/artists/lon-ne" 
+                      className="block px-4 py-2 text-white/70 hover:text-bronze hover:bg-black/20"
+                      onClick={() => {
+                        setActiveDropdown(null);
+                        setActiveSubDropdown(null);
+                      }}
+                    >
+                      Lon Ne
+                    </Link>
                     <div className="relative">
                       <button
                         className="w-full text-left px-4 py-2 text-white/70 hover:text-bronze hover:bg-black/20 flex justify-between items-center"
