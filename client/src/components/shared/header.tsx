@@ -65,7 +65,7 @@ const Header = () => {
         
           <Link 
             to="/" 
-            className=""
+            className="mr-64"
             onClick={() => {
               setIsMobileMenuOpen(false);
               setActiveDropdown(null);
