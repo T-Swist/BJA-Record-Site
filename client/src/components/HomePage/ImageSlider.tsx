@@ -53,6 +53,49 @@ const ImageSlider = () => {
     return () => clearInterval(timer);
   }, []);
 
+  // Different animation variants for each slide
+  const getImageVariants = (index: number) => {
+    const variants = [
+      // Slide 0: Fade in with zoom
+      {
+        initial: { opacity: 0, scale: 1.2 },
+        animate: { opacity: 1, scale: 1 },
+        exit: { opacity: 0, scale: 0.9 }
+      },
+      // Slide 1: Slide from right
+      {
+        initial: { opacity: 0, x: 100 },
+        animate: { opacity: 1, x: 0 },
+        exit: { opacity: 0, x: -100 }
+      },
+      // Slide 2: Slide from left
+      {
+        initial: { opacity: 0, x: -100 },
+        animate: { opacity: 1, x: 0 },
+        exit: { opacity: 0, x: 100 }
+      },
+      // Slide 3: Fade with rotate
+      {
+        initial: { opacity: 0, scale: 0.8, rotate: -5 },
+        animate: { opacity: 1, scale: 1, rotate: 0 },
+        exit: { opacity: 0, scale: 1.1, rotate: 5 }
+      },
+      // Slide 4: Slide from bottom
+      {
+        initial: { opacity: 0, y: 100 },
+        animate: { opacity: 1, y: 0 },
+        exit: { opacity: 0, y: -100 }
+      },
+      // Slide 5: Zoom out effect
+      {
+        initial: { opacity: 0, scale: 0.5 },
+        animate: { opacity: 1, scale: 1 },
+        exit: { opacity: 0, scale: 1.5 }
+      }
+    ];
+    return variants[index % variants.length];
+  };
+
   return (
     <div className="relative w-full h-screen overflow-hidden">
       {/* Darker overlay for better text contrast */}
@@ -65,10 +108,10 @@ const ImageSlider = () => {
             key={currentIndex}
             src={images[currentIndex].url}
             alt={images[currentIndex].subtitle}
-            initial={{ opacity: 0, scale: 1.1 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.95 }}
-            transition={{ duration: 0.7, ease: "easeInOut" }}
+            initial={getImageVariants(currentIndex).initial}
+            animate={getImageVariants(currentIndex).animate}
+            exit={getImageVariants(currentIndex).exit}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
             className="absolute top-0 left-0 w-full h-full object-cover"
           />
         </AnimatePresence>
