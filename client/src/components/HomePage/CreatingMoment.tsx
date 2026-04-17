@@ -52,16 +52,16 @@ const CreatingMoment = () => {
 
   const timelineItems = [
     {
-      title: '2 Launged Artists',
-      description: 'Spanning 5 continents with handpicked venues in the world\'s most sought-after destinations.'
+      title: '2 Signed Artists',
+      description: 'Talented musicians from diverse genres, each bringing unique sounds to our growing roster.'
     },
     {
       title: '2+ Years',
-      description: 'Join a curated network of luxury venues and hospitality leaders elevating global event experiences'
+      description: 'Building a legacy of quality music production and artist development in the industry'
     },
     {
       title: '2 Strategic Partners Worldwide',
-      description: 'Exclusive alliances with 7 global leaders in luxury hospitality and event innovation.'
+      description: 'Collaborations with major streaming platforms and distribution networks across the globe.'
     }
   ];
 
@@ -85,7 +85,7 @@ const CreatingMoment = () => {
                 visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
               }}
             >
-              Creating moments that matter for you
+              Creating Music That Moves The World
             </motion.h2>
             <motion.div
               initial={{ opacity: 0 }}
@@ -95,13 +95,13 @@ const CreatingMoment = () => {
               }}
             >
               <p className='text-white font-wellston mb-3'>
-                With BJA Record Empire, we offer unparalleled hospitality and event experiences that bring people closer.
+                At BJA Record Empire, we nurture raw talent and transform it into chart-topping success stories.
               </p>
               <p className='text-white font-wellston mb-3'>
-                Enjoy the highest quality services, exclusive access to the finest hotels, restaurants, events and much more
+                From artist development to global distribution, we provide everything needed to launch and sustain a successful music career
               </p>
               <p className='text-white font-wellston'>
-                Become a member, join our community @bjarecordempire and relieve well crafted experiences
+                Join our roster, become part of the BJA family @bjarecordempire and let your music reach the world
               </p>
             </motion.div>
           </div>

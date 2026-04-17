@@ -9,8 +9,8 @@ const EventsCurated = () => {
         <section className="bg-black w-full py-8 md:py-12 lg:py-16 overflow-hidden">
             <div className="container max-w-6xl px-4 mx-auto md:px-6 lg:px-8 mb-8 md:mb-12">
                 <h3 className='font-glass text-white text-2xl md:text-3xl lg:text-4xl text-center md:text-left'>
-                    Events Curated for <br className="hidden md:block" />
-                    your satisfaction
+                    Services Crafted for <br className="hidden md:block" />
+                    Your Musical Journey
                 </h3> 
             </div>
             
@@ -21,15 +21,15 @@ const EventsCurated = () => {
                         <div className="overflow-hidden rounded-md mb-4">
                             <img 
                                 src={Img1} 
-                                alt="Social Club" 
+                                alt="Artist Development" 
                                 className="w-full h-48 md:h-56 lg:h-64 object-cover rounded-md transition-transform duration-500 group-hover:scale-105"
                             />
                         </div>
                         <div className="flex flex-col space-y-3 md:space-y-4">
-                            <h3 className="text-white font-glass text-xl md:text-2xl">Social Club</h3>
+                            <h3 className="text-white font-glass text-xl md:text-2xl">Artist Development</h3>
                             <p className="text-gray-400 font-wellston text-sm md:text-base">
-                                Access the most exclusive clubs and secret spots designed to connect
-                                you with like-minded individuals and unforgettable experiences
+                                Comprehensive artist development programs including vocal coaching,
+                                performance training, and brand building to elevate your career
                             </p>
                             <Link 
                                 to="#" 
@@ -45,16 +45,15 @@ const EventsCurated = () => {
                         <div className="overflow-hidden rounded-md mb-4">
                             <img 
                                 src={Img2} 
-                                alt="Travel" 
+                                alt="Music Production" 
                                 className="w-full h-48 md:h-56 lg:h-64 object-cover rounded-md transition-transform duration-500 group-hover:scale-105"
                             />
                         </div>
                         <div className="flex flex-col space-y-3 md:space-y-4">
-                            <h3 className="text-white font-glass text-xl md:text-2xl">Travel</h3>
+                            <h3 className="text-white font-glass text-xl md:text-2xl">Music Production</h3>
                             <p className="text-gray-400 font-wellston text-sm md:text-base">
-                                From luxury hotels to secluded islands and breathtaking beach escapes,
-                                our perfect travel concierge is here to craft your ideal getaway,
-                                exactly as you dreamt it
+                                State-of-the-art recording studios with world-class producers and engineers
+                                to bring your musical vision to life with professional quality
                             </p>
                             <Link 
                                 to="#" 
@@ -70,15 +69,15 @@ const EventsCurated = () => {
                         <div className="overflow-hidden rounded-md mb-4">
                             <img 
                                 src={Img3} 
-                                alt="Fine Dining & NightLife" 
+                                alt="Distribution & Marketing" 
                                 className="w-full h-48 md:h-56 lg:h-64 object-cover rounded-md transition-transform duration-500 group-hover:scale-105"
                             />
                         </div>
                         <div className="flex flex-col space-y-3 md:space-y-4">
-                            <h3 className="text-white font-glass text-xl md:text-2xl">Fine Dining & NightLife</h3>
+                            <h3 className="text-white font-glass text-xl md:text-2xl">Distribution & Marketing</h3>
                             <p className="text-gray-400 font-wellston text-sm md:text-base">
-                                Savor the luxury of anytime reservations, indulge in Michelin-starred dining,
-                                and enjoy exclusive private events, all at your fingertips
+                                Global distribution across all major streaming platforms with strategic
+                                marketing campaigns to maximize your reach and fanbase growth
                             </p>
                             <Link 
                                 to="#" 

@@ -10,6 +10,8 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [activeSubDropdown, setActiveSubDropdown] = useState<string | null>(null);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -72,7 +74,7 @@ const Header = () => {
               setActiveSubDropdown(null);
             }}
           >
-           <img src={BJARecordLogo} alt="BJA Record Empire Logo" className='w-28 md:w-32 mx-auto'/>
+           <img src={BJARecordLogo} alt="BJA Record Empire Logo" className='w-16 md:w-24 h-auto object-contain'/>
           </Link>
           <div className="hidden lg:flex items-center gap-8 font-display">
             <Link 
@@ -270,6 +272,7 @@ const Header = () => {
                 whileTap={{ scale: 0.95 }}
                 className="px-3 py-2 font-sans flex items-center justify-between text-black rounded-full transition-all"
                 onClick={() => {
+                  setIsSearchOpen(true);
                   setActiveDropdown(null);
                   setActiveSubDropdown(null);
                 }}
@@ -447,7 +450,10 @@ const Header = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="font-sans flex items-center justify-between text-black rounded-full py-2 px-4 transition-all"
-                  onClick={handleMobileLinkClick}
+                  onClick={() => {
+                    setIsSearchOpen(true);
+                    handleMobileLinkClick();
+                  }}
                   onMouseEnter={() => setIsHover(true)}
                   onMouseLeave={() => setIsHover(false)}
                   style={{
@@ -458,6 +464,50 @@ const Header = () => {
                   {isHover ? <GoArrowRight className="ml-2 text-black" /> : <GoArrowUpRight className="ml-2 text-white" />}
                 </motion.button>
               </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Search Modal */}
+        <AnimatePresence>
+          {isSearchOpen && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed top-0 left-0 w-full h-full bg-black/50 z-50 flex items-center justify-center"
+            >
+              <motion.div
+                initial={{ scale: 0.5 }}
+                animate={{ scale: 1 }}
+                exit={{ scale: 0.5 }}
+                transition={{ duration: 0.2 }}
+                className="bg-white rounded-lg shadow-xl w-96 p-6"
+              >
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full p-2 text-lg font-sans border border-gray-300 rounded-lg"
+                  placeholder="Search..."
+                />
+                <button
+                  className="mt-4 w-full p-2 text-lg font-sans text-white bg-bronze rounded-lg"
+                  onClick={() => {
+                    // Add search functionality here
+                    console.log(searchQuery);
+                  }}
+                >
+                  Search
+                </button>
+                <button
+                  className="mt-2 w-full p-2 text-lg font-sans text-white bg-red-500 rounded-lg"
+                  onClick={() => setIsSearchOpen(false)}
+                >
+                  Cancel
+                </button>
+              </motion.div>
             </motion.div>
           )}
         </AnimatePresence>

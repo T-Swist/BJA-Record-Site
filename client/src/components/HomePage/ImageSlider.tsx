@@ -1,40 +1,54 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import FirstGif from '../../assets/images/Gen-4 Turbo Make this scene a real scene 2548571146.mp4.gif';
-import SecondGif from '../../assets/images/Gen-4 Turbo Make this scene a real scene 2548571146.mp4 (1).gif';
 import { GoArrowRight, GoArrowUpRight } from 'react-icons/go';
+import buckyRaw from "../../assets/images/BuckyRaw.webp"
+import jzyNo from "../../assets/images/JZyNo.jfif"
+import larryG from "../../assets/images/LarryG.webp"
+import BJARecordLogo from "../../assets/images/logoblack.jpg"
+import nuchieMeek from "../../assets/images/NuchieMeek.webp"
+import mcCaro from "../../assets/images/MC_Caro.jfif"
 
 const images = [
-   {
-    url: SecondGif,
-    subtitle: 'BJA Record Music',
-    description: 'A home for rising talents',
+  {
+    url: buckyRaw,
+    subtitle: 'BJA Record Empire',
+    description: 'Where Legends Are Born',
   },
   {
-    url: FirstGif,
-    subtitle: 'BJA Record Music',
-    description: 'A home for real music',
+    url: jzyNo,
+    subtitle: 'Discover New Sounds',
+    description: 'A Home for Rising Talents',
   },
   {
-    url: SecondGif,
-    subtitle: 'BJA Record Music',
-    description: 'A home for unstable creativity',
+    url: larryG,
+    subtitle: 'Premium Production',
+    description: 'Studio Quality Excellence',
+  },
+  {
+    url: nuchieMeek,
+    subtitle: 'Live Performances',
+    description: 'Unforgettable Experiences',
+  },
+  {
+    url: mcCaro,
+    subtitle: 'Creative Freedom',
+    description: 'Express Your Artistry',
+  },
+  {
+    url: BJARecordLogo,
+    subtitle: 'Join The Movement',
+    description: 'Be Part of Something Bigger',
   },
 ];
 
 const ImageSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setIsTransitioning(true);
-      setTimeout(() => {
-        setCurrentIndex((prev) => (prev + 3) % images.length);
-        setIsTransitioning(false);
-      }, 100); // 0.1-second transition time
-    }, 8000); // 8-second display time
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    }, 5000); // 5-second display time per slide
 
     return () => clearInterval(timer);
   }, []);
@@ -44,29 +58,34 @@ const ImageSlider = () => {
       {/* Darker overlay for better text contrast */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40 z-10" />
       
-      {/* Image container */}
+      {/* Image container with smooth transitions */}
       <div className="absolute inset-0 w-full h-full">
-        <img
-          key={currentIndex}
-          src={images[currentIndex].url}
-          alt={images[currentIndex].subtitle}
-          className="absolute top-0 left-0 w-full h-full object-cover"
-        />
+        <AnimatePresence mode="wait">
+          <motion.img
+            key={currentIndex}
+            src={images[currentIndex].url}
+            alt={images[currentIndex].subtitle}
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.7, ease: "easeInOut" }}
+            className="absolute top-0 left-0 w-full h-full object-cover"
+          />
+        </AnimatePresence>
       </div>
 
       {/* Content container with safe margins */}
       <div className="absolute inset-0 flex items-center justify-center z-20 px-4">
         <div className="w-full max-w-3xl mx-auto">
           <AnimatePresence mode="wait">
-            {!isTransitioning && (
-              <motion.div
-                key={currentIndex}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                className="text-center"
-              >
+            <motion.div
+              key={currentIndex}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="text-center"
+            >
                 {/* Smaller overlay with lighter opacity */}
                 <div className="bg-black/15 backdrop-blur-sm rounded-xl p-6 md:p-8">      
                 <motion.h1
@@ -113,8 +132,7 @@ const ImageSlider = () => {
                   </motion.button>
                 </motion.div>
                 </div>
-              </motion.div>
-            )}
+            </motion.div>
           </AnimatePresence>
         </div>
       </div>
@@ -125,15 +143,9 @@ const ImageSlider = () => {
           {images.map((_, index) => (
             <li key={index}>
               <button
-                onClick={() => {
-                  setIsTransitioning(true);
-                  setTimeout(() => {
-                    setCurrentIndex(index);
-                    setIsTransitioning(false);
-                  }, 100);
-                }}
+                onClick={() => setCurrentIndex(index)}
                 className={`w-[9px] h-[9px] rounded-full transition-all duration-300 ${
-                  currentIndex === index ? 'bg-bronze' : 'bg-white/30'
+                  currentIndex === index ? 'bg-bronze w-8' : 'bg-white/30'
                 }`}
               />
             </li>

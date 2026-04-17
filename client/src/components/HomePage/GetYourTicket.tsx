@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import TicketImg from '../../assets/images/Ticket_Style-removebg-preview.png';
+import MusicImg from '../../assets/images/Ticket_Style-removebg-preview.png';
 
 const GetYourTicket = () => {
   // Set your target date (e.g., April 30, 2025 at 23:59:59)
@@ -46,12 +46,12 @@ const GetYourTicket = () => {
             transition={{ duration: 0.5 }}
           >
             <img 
-              src={TicketImg} 
-              alt="VIP Ticket"  
+              src={MusicImg} 
+              alt="New Album"  
               className='w-10 md:w-20 lg:w-24 h-auto object-contain'
             />
             <h3 className='text-black font-glass text-lg sm:text-xl md:text-2xl leading-tight'>
-              Grab Yourself a Ticket for Our<br className="hidden sm:inline" /> Latest Upcoming Show
+              New Album Release<br className="hidden sm:inline" /> Dropping Soon
             </h3>
           </motion.div>
 

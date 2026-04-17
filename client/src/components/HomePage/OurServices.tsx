@@ -7,23 +7,23 @@ const OurServices = () => {
   
   const services = [
     {
-      title: "Bespoke Event Curation",
-      description: "From intimate soirées to grand celebrations, we craft unforgettable moments tailored to your vision.",
+      title: "Artist Development",
+      description: "Comprehensive training programs covering vocal coaching, stage presence, and brand building to elevate your artistry.",
       rating: 1 // 1 star
     },
     {
-      title: "Luxury Travel Planning",
-      description: "Tailored itineraries to the world's most exclusive destinations with VIP treatment at every step.",
+      title: "Music Production",
+      description: "State-of-the-art recording studios with world-class producers and engineers bringing your vision to life.",
       rating: 2 // 2 star
     },
     {
-      title: "Gourmet Experiences",
-      description: "Access to Michelin-starred chefs, private dining, and rare culinary adventures.",
+      title: "Distribution & Marketing",
+      description: "Global distribution across all major streaming platforms with strategic marketing campaigns.",
          rating: 3 // 3 star
     },
     {
-      title: "Membership Services",
-      description: "Exclusive access to private clubs, events, and a network of like-minded individuals.",
+      title: "Tour & Performance Management",
+      description: "Professional booking, tour management, and performance coordination for live shows and events.",
          rating: 4 // 4 star
     }
   ];

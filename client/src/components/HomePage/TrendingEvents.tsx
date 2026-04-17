@@ -8,7 +8,7 @@ import { FaStar, FaRegStar } from "react-icons/fa6";
 import { useState } from "react";
 
 const TrendingEvents = () => {
-  const eventCategories = ['All', 'Today', 'Tomorrow', 'This Weekend', 'Free'];
+  const eventCategories = ['All', 'Hip Hop', 'R&B', 'Afrobeats', 'Pop'];
   const [activeCategory, setActiveCategory] = useState('All');
   const [isHovered, setIsHovered] = useState(false);
   const [events, setEvents] = useState([
@@ -16,52 +16,52 @@ const TrendingEvents = () => {
       id: 1,
       month: 'July',
       day: '25',
-      title: 'Winter Wonderland',
-      location: 'San Francisco, CA',
-      time: '7PM - 11PM',
+      title: 'Midnight Vibes',
+      location: 'Daimond Datch',
+      time: 'Hip Hop',
       image: image2,
-      price: '$15 - $50',
+      price: 'Single',
       interested: 89,
-      brief: 'Event brief',
+      brief: 'Latest single from rising star',
       isInterested: false
     },
     {
       id: 2,
       month: 'Dec',
       day: '25',
-      title: 'Hour of Celebration',
-      location: 'Los Angeles, CA',
-      time: '6PM - 10PM',
+      title: 'Soulful Echoes',
+      location: 'Da Wayne',
+      time: 'R&B',
       image: image1,
-      price: '$20 - $75',
+      price: 'Album',
       interested: 65,
-      brief: 'Event brief',
+      brief: 'Debut album featuring 12 tracks',
       isInterested: false
     },
     {
       id: 3,
       month: 'June',
       day: '25',
-      title: 'Top Show',
-      location: 'New York City, NY',
-      time: '8AM - 9AM',
+      title: 'Rhythm & Flow',
+      location: 'Lon Ne',
+      time: 'Afrobeats',
       image: image3,
-      price: '$30 - $100',
+      price: 'EP',
       interested: 42,
-      brief: 'Will be Kool FM Radio',
+      brief: '5-track EP showcasing versatility',
       isInterested: false
     },
     {
       id: 4,
       month: 'Jan',
       day: '25',
-      title: 'Education and Business',
-      location: 'Chicago, IL',
-      time: '9AM - 12PM',
+      title: 'Empire Anthem',
+      location: 'BJA Records',
+      time: 'Pop',
       image: image1,
-      price: '$25 - $80',
+      price: 'Single',
       interested: 73,
-      brief: 'Event brief',
+      brief: 'Collaboration with top producers',
       isInterested: false
     }
   ]);
@@ -84,11 +84,11 @@ const TrendingEvents = () => {
     <section className="bg-black w-full py-8 md:py-12 lg:py-16">
       <div className="container max-w-6xl mx-auto px-4 sm:px-6">
         <h2 className="text-white font-glass text-2xl md:text-3xl lg:text-4xl mb-6 md:mb-8">
-          BJA Record Empire Pulse
+          Latest Releases
         </h2>
-        <abbr title="Become a Member" style={{ textDecoration: 'none' }}>
-          <Link to="/become-a-member" className="text-white font-wellston text-sm md:text-base lg:text-lg">
-            Get exclusive access and unbeatable deals on the hottest events across Europe - <span className="text-bronze">for members only.</span>
+        <abbr title="Explore Our Music" style={{ textDecoration: 'none' }}>
+          <Link to="/discography" className="text-white font-wellston text-sm md:text-base lg:text-lg">
+            Discover the hottest tracks from our talented roster of artists - <span className="text-bronze">stream now on all platforms.</span>
           </Link>
         </abbr>    
         {/* Event Categories */}
@@ -135,7 +135,7 @@ const TrendingEvents = () => {
                   )}
                 </button>
                 <div className="absolute bottom-0 left-0 bg-bronze px-2 py-1 rounded-tr-md text-xs md:text-sm">
-                  <span className="text-black">Entertainment</span>
+                  <span className="text-black">{event.time}</span>
                 </div>
               </div>
               <div className="p-4 md:p-5 flex">
@@ -168,7 +168,7 @@ const TrendingEvents = () => {
         
         <div className="flex justify-end mt-6 md:mt-8">
           <Link 
-            to="/events" 
+            to="/discography" 
             onMouseEnter={() => setIsHovered(true)} 
             onMouseLeave={() => setIsHovered(false)}
             className="px-4 py-2 w-fit flex items-center justify-center text-white font-sans text-sm md:text-base rounded-full hover:bg-bronze/20 transition-all duration-300"
